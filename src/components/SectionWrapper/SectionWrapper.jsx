@@ -1,4 +1,5 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import Statistics from "components/Statistics/Statistics";
 import FeedbackOptions from "components/FeedbackOptions/FeedbackOptions";
 import styles from "./SectionWrapper.module.css"
@@ -9,9 +10,9 @@ class Section extends Component {
         title: ""
     }
 
-    // static propTypes = {
-
-    // }
+    static propTypes = {
+        title: PropTypes.string,
+    }
 
     state = {
         good: 0,

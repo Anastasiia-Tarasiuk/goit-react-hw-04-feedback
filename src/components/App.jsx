@@ -13,7 +13,7 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      <Section title="Expresso Application" />
+      <Section title="Expresso Feedback Application"  />
     </div>
   );
 };

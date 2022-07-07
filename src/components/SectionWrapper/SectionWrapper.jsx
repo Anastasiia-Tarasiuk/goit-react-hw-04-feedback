@@ -5,7 +5,7 @@ import FeedbackOptions from "components/FeedbackOptions/FeedbackOptions";
 class Section extends Component {
 
     static defaultProps = {
-        title: "",
+        title: ""
     }
 
     // static propTypes = {
@@ -19,21 +19,45 @@ class Section extends Component {
     }
     
     handleClickButton = (e) => {
-        const target = e.currentTarget.textContent;
+        const targetName = e.currentTarget.name;
         this.setState((prevState) => {
             for (const key in prevState) {
-                if (key === target) {
+                if (key === targetName) {
                     return prevState[key] += 1;                    
                 }                 
-            }
+            }   
         })
     }
+    
+    // countTotalFeedback = ({ good, neutral, bad }) => {
+    //     return good + neutral + bad;
+    // }
 
-    render() {
+    countTotalFeedback = ({ good, neutral, bad }) => {
+        return good + neutral + bad;
+    }
+    
+    countPositiveFeedbackPercentage = ({good}, countTotalFeedback ) => {
+        return (good / countTotalFeedback * 100).toFixed(2);
+    }
+
+    render() { 
+        const options = Object.keys(this.state);
+        const { good, neutral, bad } = this.state;
+
         return <>
             <h1>{this.props.title}</h1>
-            <FeedbackOptions onClickButton={this.handleClickButton} />
-            <Statistics state={this.state} />
+            <FeedbackOptions
+                onLeaveFeedback={this.handleClickButton}
+                options={options}
+            />
+            <Statistics
+                good={good}
+                neutral={neutral}
+                bad={bad}
+                total={this.countTotalFeedback(this.state)}
+                positivePercentage={this.countPositiveFeedbackPercentage(this.state, this.countTotalFeedback(this.state))}
+            />          
         </>;        
     }
 } 

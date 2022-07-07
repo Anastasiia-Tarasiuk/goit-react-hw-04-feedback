@@ -1,3 +1,6 @@
+import React from "react";
+import Section from "./SectionWrapper/SectionWrapper";
+
 export const App = () => {
   return (
     <div
@@ -10,7 +13,7 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      React homework template
+      <Section title="Expresso Application" />
     </div>
   );
 };

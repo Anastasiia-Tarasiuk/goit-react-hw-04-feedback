@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import Statistics from "components/Statistics/Statistics";
 import FeedbackOptions from "components/FeedbackOptions/FeedbackOptions";
+import styles from "./SectionWrapper.module.css"
 
 class Section extends Component {
 
@@ -29,10 +30,6 @@ class Section extends Component {
         })
     }
     
-    // countTotalFeedback = ({ good, neutral, bad }) => {
-    //     return good + neutral + bad;
-    // }
-
     countTotalFeedback = () => {
         const { good, neutral, bad } = this.state;
         return good + neutral + bad;
@@ -47,9 +44,9 @@ class Section extends Component {
         const options = Object.keys(this.state);
         const { good, neutral, bad } = this.state;
 
-        return <>
-            <h1>{this.props.title}</h1>
-            <FeedbackOptions
+        return <section>
+            <h1 className={styles.section__title}>{this.props.title}</h1>
+            <FeedbackOptions 
                 onLeaveFeedback={this.handleClickButton}
                 options={options}
             />
@@ -60,7 +57,7 @@ class Section extends Component {
                 total={this.countTotalFeedback()}
                 positivePercentage={this.countPositiveFeedbackPercentage()}
             />          
-        </>;        
+        </section>;        
     }
 } 
 

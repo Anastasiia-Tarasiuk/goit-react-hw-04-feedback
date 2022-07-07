@@ -1,0 +1,20 @@
+.feedback {
+    margin-bottom: 40px;
+}
+
+.feedback__title{
+    margin-bottom: 20px;
+}
+
+.feedback__list {
+    display: flex; 
+}
+
+.feedback__item:not(:last-child) {
+    margin-right: 10px;
+}
+
+.feedback__button:hover {
+    background-color: blue;
+    color: white;
+}

@@ -7,10 +7,12 @@ export const App = () => {
       style={{
         height: '100vh',
         display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
+        paddingLeft: 10,
+        flexDirection: 'column',
+        alignItems: 'left',
+        fontSize: 30,
         color: '#010101'
+
       }}
     >
       <Section title="Expresso Feedback Application"  />

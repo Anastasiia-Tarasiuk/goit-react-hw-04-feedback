@@ -8,7 +8,7 @@ const Statistics = ({ state }) => {
 
     return <div>
         <h2>Statistics</h2>
-            {total != 0
+            {total !== 0
                 ? <ul>
                     <li>Good:<span>{good}</span></li>
                     <li>Neutral:<span>{neutral}</span></li>

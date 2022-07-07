@@ -20,10 +20,10 @@ class Section extends Component {
     
     handleClickButton = (e) => {
         const target = e.currentTarget.textContent;
-        this.setState((state) => {
-            for (const key in state) {
+        this.setState((prevState) => {
+            for (const key in prevState) {
                 if (key === target) {
-                    return state[key] += 1;                    
+                    return prevState[key] += 1;                    
                 }                 
             }
         })

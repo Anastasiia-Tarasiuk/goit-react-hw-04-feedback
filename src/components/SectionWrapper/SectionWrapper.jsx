@@ -33,12 +33,14 @@ class Section extends Component {
     //     return good + neutral + bad;
     // }
 
-    countTotalFeedback = ({ good, neutral, bad }) => {
+    countTotalFeedback = () => {
+        const { good, neutral, bad } = this.state;
         return good + neutral + bad;
     }
     
-    countPositiveFeedbackPercentage = ({good}, countTotalFeedback ) => {
-        return (good / countTotalFeedback * 100).toFixed(2);
+    countPositiveFeedbackPercentage = () => {
+        const { good } = this.state;
+        return (good / this.countTotalFeedback() * 100).toFixed(2);
     }
 
     render() { 
@@ -55,8 +57,8 @@ class Section extends Component {
                 good={good}
                 neutral={neutral}
                 bad={bad}
-                total={this.countTotalFeedback(this.state)}
-                positivePercentage={this.countPositiveFeedbackPercentage(this.state, this.countTotalFeedback(this.state))}
+                total={this.countTotalFeedback()}
+                positivePercentage={this.countPositiveFeedbackPercentage()}
             />          
         </>;        
     }

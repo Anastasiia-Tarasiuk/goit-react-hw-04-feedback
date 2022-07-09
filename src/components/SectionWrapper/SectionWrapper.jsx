@@ -20,15 +20,10 @@ class Section extends Component {
         bad: 0
     }
     
-    handleClickButton = (e) => {
-        const targetName = e.currentTarget.name;
-        this.setState((prevState) => {
-            for (const key in prevState) {
-                if (key === targetName) {
-                    return prevState[key] += 1;                    
-                }                 
-            }   
-        })
+    handleClickButton = ({target: {name}}) => {
+        this.setState((prevState) => ({
+            [name]: prevState[name] + 1
+        }))
     }
     
     countTotalFeedback = () => {
